@@ -1,0 +1,63 @@
+"use client";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
+import Orange_btn from "./Orange_btn";
+const Navbar = () => {
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+  return (
+    <nav className="navbar navbar-expand-lg ">
+      <div className="container d-flex align-items-center justify-content-between">
+        <div className="d-flex align-items-center">
+          <img className="logo me-2" src="/Logo.png" alt="NovaTech Logo" />
+          <a className="navbar-brand fw-bold mt-3 mb-1 mx-2" href="#">
+            NovaTech
+          </a>
+        </div>
+
+        <button
+          className="navbar-toggler mt-2 bg-light"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto align-items-lg-center">
+            <li className="nav-item mx-2 mt-lg-5">
+              <a className="nav-link" href="/">
+                Home
+              </a>
+            </li>
+            <li className="nav-item mx-2 mt-lg-5">
+              <a className="nav-link" href="/portfolio">
+                Portfolio
+              </a>
+            </li>
+            <li className="nav-item mx-2 mt-lg-5">
+              <a className="nav-link" href="/contact">
+                Contact
+              </a>
+            </li>
+            <li className="mt-2 mt-lg-5 mx-2 ">
+              <Orange_btn
+                text="Start Your Project"
+                class="btn_Start"
+                 href="/start"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

@@ -1,0 +1,108 @@
+/* ====== Container ====== */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* ====== White Box ====== */
+.box {
+  width: 100%;
+  max-width: 360px;       /* أصغر من قبل ليكون مناسب */
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* ====== Logo ====== */
+.logo {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+/* ====== Title ====== */
+.title {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* ====== Form ====== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* ====== Input ====== */
+.input {
+  width: 100%;                 /* أهم شي */
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d5d5d5;
+  background: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+  box-sizing: border-box;      /* مهم جداً لمنع الطلوع لبرا */
+}
+
+.input:focus {
+  border-color: #0084ff;
+  box-shadow: 0 0 4px rgba(0, 132, 255, 0.28);
+}
+
+/* ====== Error Message ====== */
+.error {
+  color: #d93025;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* ====== Orange Button ====== */
+.button {
+  width: 100%;                 /* يساوي عرض الإنبت */
+  background-color: #fe901a;
+
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(254, 144, 26, 0.4);
+
+
+}
+
+.button:active {
+  background: #e86f1c;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 480px) {
+  .box {
+    max-width: 92%;
+    padding: 22px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+}

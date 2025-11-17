@@ -1,0 +1,13 @@
+"use client";
+
+import { ToastContainer } from "react-toastify";
+
+
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      {children}
+      <ToastContainer rtl position="top-center" autoClose={3000} />
+    </>
+  );
+}

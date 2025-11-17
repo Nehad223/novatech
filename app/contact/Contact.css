@@ -1,0 +1,182 @@
+.contact {
+  margin-top: 2vh !important;
+  position: relative;
+}
+.contact h1,
+.contact p {
+  text-align: center;
+  color: white;
+}
+.contact h1 {
+  font-family: var(--font-roboto), sans-serif;
+  font-size: clamp(20px, 6vw, 50px);
+  font-weight: 700;
+}
+.contact p {
+  font-size: clamp(14px, 4vw, 30px);
+  font-family: var(--font-tajawal), sans-serif;
+  font-weight: 400;
+}
+
+.Contact_Body {
+  position: relative;
+  overflow: hidden;
+  background-color: #d9d9d9;
+  border: solid 1px #d9d9d9;
+  border-radius: 15px;
+  padding: 2vh;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: row;
+  gap: 3vh;
+}
+
+.Inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 70%;
+}
+
+.Inputs input,
+.Inputs textarea {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.Inputs textarea {
+  height: 120px;
+  resize: none;
+}
+
+.Inputs button {
+  padding: 10px;
+  background-color: #fe901a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 🟠 تأثير hover وactive للزر */
+.Inputs button:hover {
+  background-color: #ffae4a;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.Inputs button:active {
+  transform: scale(0.97);
+  background-color: #e27c00;
+}
+
+.Contact_Body .Text_Info h3 {
+  color: #132e6a;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: clamp(10px, 6vw, 20px);
+  font-weight: 600;
+}
+.Text_Info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Text_Info .img {
+  width: 3vh;
+  height: 4vh;
+}
+.Text_Info .location p {
+  color: #132e6a;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: clamp(10px, 6vw, 20px);
+  font-weight: 400;
+}
+.location {
+  display: flex;
+  flex-direction: row;
+  gap: 2vh;
+}
+.icons {
+  display: flex;
+  flex-direction: row;
+  gap: 3vh;
+  margin-top: 2vh;
+}
+
+/* 🟣 الأيقونات وتأثيراتها */
+.icons img {
+  width: 5vh;
+  height: 5vh;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.icons img:hover {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+.icons img:active {
+  transform: scale(0.95);
+  filter: brightness(0.9);
+}
+
+@media (max-width: 991px) {
+  .Contact_Body {
+    flex-direction: column;
+    width: 94%;
+    margin-top: 10px !important;
+    gap: 1vh !important;
+  }
+  .space {
+    width: 100%;
+    height: 0.2vh !important;
+  }
+  .contact {
+    margin-top: 0vh !important;
+  }
+  .Inputs {
+    width: 98%;
+    gap: 1vh;
+  }
+  .Text_Info .img {
+    width: 2vh;
+    height: 3vh;
+  }
+  body {
+    overflow-y: scroll;
+  }
+  .Text_Info{
+    gap: 0.4vh;
+  }
+  .Text_Info .location p {
+    font-size: clamp(5px, 3vw, 20px);
+    font-weight: 400;
+  }
+  .Contact_Body .Text_Info h3 {
+    font-size: clamp(10px, 4vw, 20px);
+  }
+  .Inputs button {
+    padding: 7px;
+  }
+  .icons img {
+    width: 5vh;
+    height: 4vh;
+  }
+  .icons {
+    justify-content: space-evenly;
+  }
+}
+
+/* ✅ رسالة الخطأ */
+.error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: -6px;
+  margin-bottom: 4px;
+  text-align: left;
+  animation: fadeIn 0.3s ease;
+}
+

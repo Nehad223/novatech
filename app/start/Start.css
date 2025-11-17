@@ -1,0 +1,116 @@
+.start {
+  text-align: center;
+  margin-top: 2vh;
+}
+
+.start h1,
+.start p {
+  color: white;
+}
+
+.start h1 {
+  font-family: var(--font-roboto), sans-serif;
+  font-size: clamp(20px, 6vw, 50px);
+  font-weight: 700;
+}
+
+.start p {
+  font-size: clamp(14px, 4vw, 30px);
+  font-family: var(--font-tajawal), sans-serif;
+  font-weight: 400;
+}
+
+/* Start Form */
+.start-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  background-color: #fff;
+  padding: 3vh;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5vh;
+  color: #15306B;
+  font-family: var(--font-tajawal), sans-serif;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-family: var(--font-tajawal), sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Error Message */
+.error-msg {
+  color: #d9534f;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: #fe901a !important;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  font-family: var(--font-tajawal), sans-serif;
+  box-shadow: 0 3px 8px rgba(254, 144, 26, 0.3);
+}
+
+.submit-btn:hover {
+  background-color: #ffae4a !important;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 14px rgba(254, 144, 26, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0) scale(0.98);
+  background-color: #e27c00 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  body {
+    overflow-y: scroll;
+  }
+
+  .Start_Body {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .start-form {
+    padding: 2vh;
+    gap: 1.5vh;
+  }
+}

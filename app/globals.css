@@ -1,0 +1,242 @@
+/* --------------------------- القواعد العامة --------------------------- */
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to top right, #0b2c70, #4c7dde);
+  scrollbar-width: none !important;
+  overflow-y: scroll;
+    background-attachment: fixed;
+}
+
+/* --------------------------- الخطوط --------------------------- */
+.font-tajawal {
+  font-family: var(--font-tajawal), sans-serif;
+}
+.font-roboto {
+  font-family: var(--font-roboto), sans-serif;
+}
+
+/* --------------------------- اللوجو والنافبار --------------------------- */
+.logo {
+  width: 7vh;
+  height: 9vh;
+  margin-top: -3vh !important;
+}
+.navbar-brand,
+.nav-link,
+.btn_Start {
+  font-family: var(--font-roboto), sans-serif;
+  color: white !important;
+}
+.navbar-brand {
+  font-size: 35px !important;
+  font-weight: 700;
+}
+.nav-link {
+  font-size: 20px !important;
+  font-weight: 500;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%234C7DDE' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+/* --------------------------- النصوص --------------------------- */
+.Main_Home h2,
+.Main_Home p {
+  color: white !important;
+}
+.Main_Home h2 {
+  font-family: var(--font-roboto), sans-serif;
+  font-weight: 500;
+}
+.Main_Home p {
+  font-family: var(--font-tajawal), sans-serif;
+  font-weight: 400;
+}
+
+/* --------------------------- الأزرار العامة --------------------------- */
+.buttons_Orange .Start_Your_Project,
+.buttons_Orange .View_Portfolio,
+.btn_Start {
+  width: 100%;
+  max-width: 252px;
+  height: 60px;
+  background-color: #fe901a;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px solid #fe901a;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(254, 144, 26, 0.3);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  font-family: var(--font-roboto), sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttons_Orange .Start_Your_Project:hover,
+.buttons_Orange .View_Portfolio:hover,
+.btn_Start:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(254, 144, 26, 0.4);
+}
+.buttons_Orange .View_Portfolio {
+  margin-top: 4vh;
+}
+
+/* --------------------------- الصور --------------------------- */
+.Main_Home .Photos .laptopAI {
+  width: 45vh !important;
+  margin-top: -20vh;
+}
+.Main_Home .Photos .brain {
+  width: 45vh !important;
+  margin-top: -15vh;
+  margin-bottom: -2vh !important;
+}
+
+/* --------------------------- تخطيط ديسكتوب --------------------------- */
+.desktop_buttons {
+  display: none;
+}
+.mobile_buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+@media (min-width: 992px) {
+  .mobile_buttons {
+    display: none;
+  }
+
+  .Main_Home .content_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .Main_Home .Texts {
+    flex: 1;
+    text-align: left;
+    margin-top: -5vh;
+  }
+
+  .Main_Home .Photos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .Main_Home .Photos img {
+    width: 40vh !important;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .desktop_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+  }
+  .desktop_buttons .Start_Your_Project,
+  .desktop_buttons .View_Portfolio,
+  .btn_Start {
+    width: 100%;
+    min-width: 220px;
+    height: 60px;
+  }
+  .desktop_buttons .View_Portfolio {
+    margin-top: 0 !important;
+  }
+
+  .Main_Home .Texts h2 {
+    font-size: clamp(20px, 6vw, 52px);
+  }
+  .Main_Home .Texts p {
+    font-size: clamp(14px, 4vw, 24px);
+    font-weight: 300;
+  }
+  .Main_Home .Photos .laptopAI,
+  .Main_Home .Photos .brain {
+    width: 38vh !important;
+  }
+}
+
+/* --------------------------- موبايل --------------------------- */
+@media (max-width: 991px) {
+  .buttons_Orange {
+    margin-top: -1vh !important;
+    width: 100%;
+  }
+  .buttons_Orange .View_Portfolio {
+    margin-top: 2vh;
+  }
+
+  .mobile_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    width: 100%;
+    margin-top: 3vh;
+  }
+
+  .mobile_buttons .Start_Your_Project,
+  .mobile_buttons .View_Portfolio,
+  .btn_Start {
+    width: 80vw !important;
+    height: 7vh !important;
+    font-size: 18px !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+
+  .Main_Home {
+    text-align: center;
+    margin-top: 3vh;
+  }
+
+  .Main_Home .Photos .laptopAI {
+    width: 23vh !important;
+    margin-top: -11vh;
+  }
+  .Main_Home .Photos .brain {
+    width: 23vh !important;
+    margin-top: -9vh;
+  }
+
+  .Main_Home .Texts h2 {
+    font-size: clamp(20px, 6vw, 50px);
+  }
+  .Main_Home .Texts p {
+    font-size: clamp(14px, 4vw, 30px);
+  }
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 8px 0; /* مسافة عمودية صغيرة بين العناصر */
+  }
+
+  .btn_Start {
+    display: block;
+    margin: 10px auto;
+  }
+}
+
+.Toastify__toast-container {
+  z-index: 999999 !important;
+}

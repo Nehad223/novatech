@@ -1,0 +1,169 @@
+body{
+  overflow-y: scroll;
+}
+.Port_Body{
+    text-align: center;
+}
+.Port_Body span{
+
+
+    font-family: var(--font-roboto), sans-serif;
+  font-size: clamp(20px, 6vw, 50px);
+  font-weight: 700;
+  color: white;
+
+}
+
+.Port_Body p,.Port_Body p span{
+  font-size: clamp(14px, 3vw, 25px);
+      font-family: var(--font-roboto), sans-serif;
+  color: white;
+
+  font-weight: 400;
+
+
+
+}
+.Search_Box {
+  position: relative;
+  background: linear-gradient(to top right, #0b2c70, #4c7dde);
+  border-radius: 10px;
+  height: 7.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.Search_Box input {
+  height: 5vh;
+  width: 96.5%;
+  padding: 10px;
+  padding-right: 50px; /* مساحة للأيقونة من اليمين */
+  font-size: 25px;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  text-align: left; /* الكتابة تظل من اليسار */
+  direction: ltr;   /* يضمن أن النص يبقى يسار */
+}
+
+.Search_Box img {
+  position: absolute;
+  right: 40px; /* الأيقونة على أقصى اليمين داخل الصندوق */
+  height: 24px;
+  width: 24px;
+  pointer-events: none;
+}
+
+/* الحاوية العامة */
+.Portfolio_Items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+  padding: 40px;
+}
+
+/* العنصر */
+.portfolio-item {
+  background-color: #e6e6e6;
+  border-radius: 12px;
+  width: 95%;
+  max-width: 320px; /* ⬅️ زدت الحد الأقصى شوي */
+  padding: 14px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* الصورة */
+.portfolio-image-container {
+  width: 100%;
+  height: 180px; /* ⬅️ كبرنا الصورة كمان */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* العنوان */
+.portfolio-title {
+  font-size: 1.2rem; /* ⬅️ كبرنا الخط */
+  font-weight: 600;
+  color: #222;
+  margin: 12px 0 6px 0;
+}
+
+/* التقنيات */
+.portfolio-tech {
+  font-size: 1rem !important;
+  color: #555 !important;
+  margin: 0;
+}
+
+/* 🖥️ حجم مناسب للابتوب (بين 992px و 1400px) */
+@media (max-width: 1400px) {
+  .portfolio-item {
+    max-width: 300px;
+  }
+  .portfolio-image-container {
+    height: 160px;
+  }
+}
+
+/* 📱 شاشات متوسطة وصغيرة */
+@media (max-width: 991px) {
+  .Portfolio_Items {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .portfolio-item {
+    width: 95%;
+    max-width: 960px;
+  }
+
+  .portfolio-image-container {
+    height: 150px;
+  }
+
+  .portfolio-title {
+    font-size: 1.1rem;
+  }
+
+  .portfolio-tech {
+    font-size: 0.95rem;
+  }
+}
+
+/* 📱 شاشات صغيرة جداً */
+@media (max-width: 600px) {
+  .portfolio-item {
+    width: 95% !important;
+    max-width: 550px;
+  }
+
+  .portfolio-image-container {
+    height: 130px;
+  }
+
+  .portfolio-title {
+    font-size: 1rem;
+  }
+
+  .portfolio-tech {
+    font-size: 0.9rem;
+  }
+}
+
