@@ -1,8 +1,11 @@
+"use client";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Tajawal, Roboto } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { useState, useEffect } from "react";
+import LoadingScreen from "./Components/LoadingScreen";
 
 const tajawal = Tajawal({
   subsets: ["latin", "arabic"],
@@ -28,25 +31,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "NovaTech",
-  description: "Syria,Lattakia",
-};
 
-export default function RootLayout({ children }:{
+export default function RootLayout({ children }: {
   children: React.ReactNode;
 }) {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // بإمكانك تزود الوقت أو تعمل preload للصور
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tajawal.variable} ${roboto.variable} antialiased`}
         style={{ fontFamily: "var(--font-tajawal), var(--font-roboto), sans-serif" }}
       >
-        <Providers>
-          {children}
-        </Providers>
+        {loading ? (
+          <LoadingScreen />
+        ) : (
+          <Providers>
+            {children}
+          </Providers>
+        )}
       </body>
     </html>
   );
 }
-

@@ -3,10 +3,10 @@ import Portfolio_item from './Portfolio_item';
 const Portfilio_Items = (props) => {
   return (
     <div className='Portfilio_Items container'>
-        <Portfolio_item img={"/app.png"} text={"Application"} type={props.type} />
-        <Portfolio_item img={"/ai.png"} text={"AI Models"} type={props.type}  />
-        <Portfolio_item img={"/bot.png"} text={"Telegram Bot"} type={props.type} />
-        <Portfolio_item img={"/web.png"} text={"Websites"} type={props.type}  />      
+        <Portfolio_item img={"/app.avif"} text={"Application"} type={props.type} />
+        <Portfolio_item img={"/ai.avif"} text={"AI Models"} type={props.type}  />
+        <Portfolio_item img={"/bot.avif"} text={"Telegram Bot"} type={props.type} />
+        <Portfolio_item img={"/web.avif"} text={"Websites"} type={props.type}  />      
     </div>
   )
 }

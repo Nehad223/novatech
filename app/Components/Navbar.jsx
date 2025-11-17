@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg ">
       <div className="container d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center">
-          <img className="logo me-2" src="/Logo.png" alt="NovaTech Logo" />
+          <img className="logo me-2" src="/Logo.avif" alt="NovaTech Logo" />
           <a className="navbar-brand fw-bold mt-3 mb-1 mx-2" href="#">
             NovaTech
           </a>

@@ -8,7 +8,7 @@ export default function ProjectsList({ projects, onEdit, onDelete }: any) {
           style={{ position: "relative" }}
         >
           <img
-            src={proj.photosUrls[0] || "/Logo.png"}
+            src={proj.photosUrls[0] || "/Logo.avif"}
             alt={proj.name}
             className="rounded w-100"
             style={{ height: "200px", objectFit: "cover" }}

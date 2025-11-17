@@ -275,6 +275,7 @@ export default function AddProjectModal({ onClose }) {
                         alt={`صورة ${i + 1}`}
                         className="rounded border"
                         style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                        
                       />
                       <button
                         type="button"

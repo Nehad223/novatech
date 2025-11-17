@@ -94,7 +94,7 @@ export default function PortfolioTypePage() {
               <Portfolio_Item
                 key={proj.id}
                 id={proj.id}
-                image={proj.photosUrls[0] || '/Logo.png'}
+                image={proj.photosUrls[0] || '/Logo.avif'}
                 images={proj.photosUrls}
                 githubUrl={proj.githubUrl}
                 experienceUrl={proj.experienceUrl}

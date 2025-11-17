@@ -40,7 +40,7 @@ export default function AdminLogin() {
   return (
     <div className="container">
       <div className="box">
-        <img src="/Logo.png" className="logo" alt="Logo" />
+        <img src="/Logo.avif" className="logo" alt="Logo"  />
         <h1 className="title">Novatech</h1>
 
         <form onSubmit={submit}>

@@ -227,7 +227,7 @@ export default function EditProjectModal({ project, onClose, onSave }: EditProje
             >
               {selectedProject.photosUrls?.map((url: string, i: number) => (
                 <div key={i} style={{ position: "relative" }}>
-                  <img src={url} className="modal-thumb" alt={`photo-${i}`} />
+                  <img src={url} className="modal-thumb" alt={`photo-${i}`}  />
                   <button
                     type="button"
                     onClick={() => removePhoto(url)}

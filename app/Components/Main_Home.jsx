@@ -31,10 +31,10 @@ const Main_Home = () => {
         {/* الصور */}
         <div className="Photos">
           <div>
-            <img src="./brain.png" className="brain" alt="AI Brain" />
+            <img src="./brain.avif" className="brain" alt="AI Brain"  />
           </div>
           <div>
-            <img src="./laptopAi.png" className="laptopAI" alt="AI Laptop" />
+            <img src="./laptopAi.avif" className="laptopAI" alt="AI Laptop"  />
           </div>
         </div>
       </div>
