@@ -10,7 +10,7 @@
     width: 40%;
     display: flex;
     flex-direction: column;
-    gap: 12vh;
+    gap: 8vh;
 }
 .Inner1 div{
    display: flex;
@@ -42,8 +42,10 @@
 .Inner1 button {
   background-color: #FE901A;
   border: solid 1px #FE901A;
-  width: 20vh;
-  height: 4vh;
+  width: 26vh;
+  min-width: 190px;
+  height: auto;
+  max-width: 200px;
   border-radius: 5px;
   text-align: center;
   font-family: var(--font-roboto), sans-serif;
@@ -94,7 +96,7 @@ font-weight: 400;
 .carousel-inner img {
   width: 100%;
   height: 28vh !important;
-
+  max-height: 500px !important;
   border-radius: 12px;       
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -110,6 +112,8 @@ font-weight: 400;
     width: 5vh !important;
     height: 4vh !important;
     margin-right: 2vh;
+    max-width: 100px;
+    max-height: 50px !important;
     
 }
 .Github_Btn {
@@ -129,6 +133,7 @@ font-weight: 400;
 .Github_Btn,
 .Tech_Stack button {
   height: 6vh;
+  max-height: 80px !important;
   text-align: center;
   font-size: 20px;
   border-radius: 15px;
@@ -172,8 +177,9 @@ font-weight: 400;
 .Tech_Stack button{
     background-color: #8C8F94;
     border: solid 1px #8C8F94;
-    width: 10vh;
-    height: 4vh;
+    width: auto;
+    height: auto;
+    padding: 2px;
     border-radius: 5px;
 
 }
@@ -191,6 +197,7 @@ font-weight: 400;
     }
     .Inner1{
         gap:4vh;
+        text-align: center;
     }
     .Inner1 .part1{
         text-align: center;

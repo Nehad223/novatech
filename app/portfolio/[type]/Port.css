@@ -104,6 +104,16 @@ body{
   color: #222;
   margin: 12px 0 6px 0;
 }
+.portfolio-item {
+  text-decoration: none !important;
+}
+
+.portfolio-item:hover,
+.portfolio-item:focus,
+.portfolio-item:active {
+  text-decoration: none !important;
+}
+
 
 /* التقنيات */
 .portfolio-tech {

@@ -10,7 +10,7 @@
 .Portfilio h1 {
   color: white;
   font-family: var(--font-roboto), sans-serif;
-  font-size: clamp(20px, 6vw, 52px);
+  font-size: clamp(20px, 6vw, 42px);
   font-weight: 700;
 }
 
@@ -41,15 +41,19 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  height: 23vh;
   width: 100%;
   padding: 20px;
   transition: all 0.3s ease; /* للتحريك الناعم */
   cursor: pointer; /* يعطي إحساس أنه قابل للنقر */
+  min-height: 152px !important;
+  max-height: 300px !important;
 }
 
 /* الصورة */
 .Portfilio_photo .photo {
-  width: 20vh;
+  width: 14vh;
+  max-width: 220px !important;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -94,6 +98,9 @@
     gap: 30px;
     width: 90%;
     padding: 20px;
+  }
+  .Portfolio_item{
+    height: auto !important;
   }
 
   .Portfilio_photo .photo {

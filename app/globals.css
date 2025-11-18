@@ -7,6 +7,10 @@ body {
   overflow-y: scroll;
     background-attachment: fixed;
 }
+.container{
+  max-width: 1100px !important;
+  margin: 0px;
+}
 
 /* --------------------------- الخطوط --------------------------- */
 .font-tajawal {
@@ -165,10 +169,13 @@ body {
   .Main_Home .Texts p {
     font-size: clamp(14px, 4vw, 24px);
     font-weight: 300;
+   
   }
   .Main_Home .Photos .laptopAI,
   .Main_Home .Photos .brain {
     width: 38vh !important;
+    max-width: 500px !important;
+    max-height: 550px !important;
   }
 }
 

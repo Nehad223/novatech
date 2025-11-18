@@ -61,7 +61,7 @@ const page = () => {
                 onClick={() => window.open(item.githubUrl, '_blank')}
               >
                 <span>
-                  <img className='img_Btn' src="/github_Btn.png" alt="GitHub"/>
+                  <img className='img_Btn' src="/github_Btn.avif" alt="GitHub"/>
                 </span>
                 <span>View Code On GitHub</span>
               </button>

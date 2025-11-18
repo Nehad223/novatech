@@ -10,12 +10,12 @@
 
 .start h1 {
   font-family: var(--font-roboto), sans-serif;
-  font-size: clamp(20px, 6vw, 50px);
+  font-size: clamp(20px, 6vw, 40px);
   font-weight: 700;
 }
 
 .start p {
-  font-size: clamp(14px, 4vw, 30px);
+  font-size: clamp(14px, 4vw, 25px);
   font-family: var(--font-tajawal), sans-serif;
   font-weight: 400;
 }
@@ -36,7 +36,7 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  text-align: right;
+  text-align: left;
 }
 
 .form-group label {
@@ -45,6 +45,7 @@
   color: #15306B;
   font-family: var(--font-tajawal), sans-serif;
 }
+
 
 .form-group input,
 .form-group select,

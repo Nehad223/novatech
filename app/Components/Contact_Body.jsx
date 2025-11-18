@@ -97,17 +97,17 @@ const Contact_Body = () => {
       <div className='Text_Info'>
         <h3>Contact Info</h3>
         <div className='location'>
-          <img className='img' src="/location.png" alt='location' />
+          <img className='img' src="/location.avif" alt='location' />
           <p>Location</p>
           <p>Lattakia, Syria</p>
         </div>
         <div className='location'>
-          <img className='img' src="/email.png" alt='email' />
+          <img className='img' src="/email.avif" alt='email' />
           <p>Email</p>
           <p>novatech@gmail.com</p>
         </div>
         <div className='location'>
-          <img className='img' src="/phone.png" alt='phone' />
+          <img className='img' src="/phone.avif" alt='phone' />
           <p>Phone</p>
           <p>+963940219610</p>
         </div>
@@ -115,10 +115,10 @@ const Contact_Body = () => {
         <div>
           <h3>Links</h3>
           <div className='icons'>
-            <img src="/facebook.png" alt='facebook' />
-            <img src="/telegram.png" alt='telegram' />
-            <img src="/insta.png" alt='instagram' />
-            <img src="/github.png" alt='github' />
+            <img src="/facebook.avif" alt='facebook' />
+            <img src="/telegram.avif" alt='telegram' />
+            <img src="/insta.avif" alt='instagram' />
+            <img src="/github.avif" alt='github' />
           </div>
         </div>
       </div>

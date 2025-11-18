@@ -78,7 +78,7 @@ export default function PortfolioTypePage() {
         <p>Explore NovaTech's projects in {renderContent()}</p>
 
         <div className="Search_Box">
-          <img src="/search.png" alt="search icon" />
+          <img src="/search.avif" alt="search icon" />
           <input
             placeholder="ابحث عن مشروع"
             value={searchTerm}
