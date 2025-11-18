@@ -2,6 +2,7 @@ import './globals.css'
 import Navbar from './Components/Navbar'
 import Main_Home from './Components/Main_Home'
 import type { Metadata } from "next";
+import Script from 'next/script';
 export const metadata: Metadata = {
   title:
     "NovaTech | تصميم مواقع احترافية - تطبيقات موبايل - ذكاء اصطناعي - بوتات تلغرام | اللاذقية سوريا",
