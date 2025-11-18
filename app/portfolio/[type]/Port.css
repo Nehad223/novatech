@@ -40,7 +40,7 @@ body{
   width: 96.5%;
   padding: 10px;
   padding-right: 50px; /* مساحة للأيقونة من اليمين */
-  font-size: 25px;
+  font-size: 1.1rem;
   border-radius: 7px;
   border: none;
   outline: none;
@@ -50,7 +50,7 @@ body{
 
 .Search_Box img {
   position: absolute;
-  right: 40px; /* الأيقونة على أقصى اليمين داخل الصندوق */
+ right: 3%; /* الأيقونة على أقصى اليمين داخل الصندوق */
   height: 24px;
   width: 24px;
   pointer-events: none;
@@ -134,6 +134,8 @@ body{
 
 /* 📱 شاشات متوسطة وصغيرة */
 @media (max-width: 991px) {
+
+
   .Portfolio_Items {
     grid-template-columns: 1fr;
     gap: 25px;
