@@ -40,6 +40,11 @@ export const metadata: Metadata = {
     "برمجة خاصة",
     "مواقع شركات",
   ],
+    icons: {
+    icon: '/Logo.avif',        // favicon
+    shortcut: '/Logo.avif',    // أيقونة للـ shortcut
+    apple: '/Logo.avif',       // أيقونة iOS
+  },
 
   openGraph: {
     title:
@@ -59,8 +64,14 @@ export const metadata: Metadata = {
         height: 630,
         alt: "NovaTech – Website Preview",
       },
+      
     ],
-  },
+
+    
+
+
+  }
+  ,
 
   twitter: {
     card: "summary_large_image",
