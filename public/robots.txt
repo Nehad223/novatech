@@ -1,9 +1,11 @@
-# *
 User-agent: *
-Allow: /
-
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin/add
+Disallow: /admin/login
+Disallow: /admin/password
+Disallow: /admin/statistics
+Disallow: /logout
+Sitemap: https://novatech-1tne.vercel.app/sitemap.xml
 # Host
 Host: https://novatech-1tne.vercel.app
-
-# Sitemaps
-Sitemap: https://novatech-1tne.vercel.app/sitemap.xml
