@@ -27,8 +27,9 @@ export default function AdminLogin() {
       }
 
       // ✅ خزن التوكن بالكوكيز
-      document.cookie = `access_token=${data.token}; path=/; max-age=3600`; // ساعة واحدة
-      document.cookie = `refresh_token=${data.refresh}; path=/; max-age=604800`; // أسبوع
+document.cookie = `access_token=${data.token}; path=/; max-age=3600; secure; samesite=None`;
+document.cookie = `refresh_token=${data.refresh}; path=/; max-age=604800; secure; samesite=None`;
+
 
       router.push("/admin"); // تحويل للأدمن
     } catch (e) {

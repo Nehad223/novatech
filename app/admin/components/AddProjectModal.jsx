@@ -65,6 +65,7 @@ export default function AddProjectModal({ onClose }) {
       const res = await  api("https://novatech66.pythonanywhere.com/projects/newpro/", {
         method: "POST",
         headers: { "Content-Type": "application/json",
+            credentials: "include",
      
 
          },

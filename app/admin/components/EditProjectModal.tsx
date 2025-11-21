@@ -38,6 +38,7 @@ export default function EditProjectModal({ project, onClose, onSave }: EditProje
           headers: { "Content-Type": "application/json" ,
           },
           body: JSON.stringify(selectedProject),
+            credentials: "include",
         }
       );
 

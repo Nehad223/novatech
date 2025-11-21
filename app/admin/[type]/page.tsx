@@ -50,7 +50,9 @@ const handleDelete = (id: number) => {
             try {
               const res = await api(
                 `https://novatech66.pythonanywhere.com/projects/project/${id}/`,
-                { method: "DELETE" }
+                { method: "DELETE",
+                    credentials: "include",
+                 }
               );
 
               if (!res.ok) throw new Error();
