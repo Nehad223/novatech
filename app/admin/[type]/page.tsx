@@ -1,22 +1,36 @@
 "use client";
+
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Navbar_Admin from "../../Components/Navbar_Admin";
 import "../admin.css";
 import "../../portfolio/[type]/Port.css";
 import { api } from "@/lib/api";
-import SearchBox from '../components/SearchBox'
+import SearchBox from "../components/SearchBox";
 import ProjectsList from "../components/ProjectsList";
 import EditProjectModal from "../components/EditProjectModal";
 import { getApiType } from "../components/utils";
 import { toast } from "react-toastify";
 
+// تعريف واجهة المشروع لتجنب any
+interface Project {
+  id: number;
+  name: string;
+  shortDiscription: string;
+  longDiscription: string;
+  tags: string[];
+  githubUrl?: string;
+  experienceUrl?: string;
+  projectType?: string[];
+  photosUrls?: string[];
+}
+
 export default function AdminProjectsPage() {
   const { type } = useParams();
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showModal, setShowModal] = useState(false);
 
   const apiType = getApiType(type as string);
@@ -28,10 +42,12 @@ export default function AdminProjectsPage() {
         const res = await fetch(
           `https://novatech66.pythonanywhere.com/projects/projects/${apiType}/`
         );
-        const data = await res.json();
+        if (!res.ok) throw new Error("فشل جلب المشاريع");
+        const data: Project[] = await res.json();
         setProjects(data);
       } catch (err) {
         console.error("❌ خطأ أثناء جلب المشاريع:", err);
+        toast.error("حدث خطأ أثناء جلب المشاريع");
       } finally {
         setLoading(false);
       }
@@ -39,60 +55,63 @@ export default function AdminProjectsPage() {
     fetchProjects();
   }, [apiType]);
 
-const handleDelete = (id: number) => {
-  toast.info(
-    <div className="text-center">
-      <p>هل أنت متأكد من حذف المشروع؟</p>
-      <div className="d-flex justify-content-center gap-2 mt-2">
-        <button
-          className="btn btn-danger btn-sm"
-          onClick={async () => {
-            try {
-              const res = await api(
-                `https://novatech66.pythonanywhere.com/projects/project/${id}/`,
-                { method: "DELETE",
-                    credentials: "include",
-                 }
-              );
+  // حذف مشروع
+  const handleDelete = (id: number) => {
+    const confirmDelete = (
+      <div className="text-center">
+        <p>هل أنت متأكد من حذف المشروع؟</p>
+        <div className="d-flex justify-content-center gap-2 mt-2">
+          <button
+            className="btn btn-danger btn-sm"
+            onClick={async () => {
+              try {
+                const res: Response = await api(
+                  `https://novatech66.pythonanywhere.com/projects/project/${id}/`,
+                  { method: "DELETE" }
+                );
 
-              if (!res.ok) throw new Error();
+                if (!res.ok) throw new Error("فشل حذف المشروع");
 
-              setProjects((prev) => prev.filter((p) => p.id !== id));
-              toast.success("تم حذف المشروع بنجاح");
-            } catch (err) {
-              toast.error("حدث خطأ أثناء حذف المشروع");
-            }
-            toast.dismiss(); // إغلاق Toast التأكيد
-          }}
-        >
-          حذف
-        </button>
+                setProjects((prev) => prev.filter((p) => p.id !== id));
+                toast.success("تم حذف المشروع بنجاح");
+              } catch (err) {
+                console.error(err);
+                toast.error("حدث خطأ أثناء حذف المشروع");
+              } finally {
+                toast.dismiss();
+              }
+            }}
+          >
+            حذف
+          </button>
 
-        <button
-          className="btn btn-secondary btn-sm"
-          onClick={() => toast.dismiss()}
-        >
-          إلغاء
-        </button>
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={() => toast.dismiss()}
+          >
+            إلغاء
+          </button>
+        </div>
       </div>
-    </div>,
-    { autoClose: false }
-  );
-};
+    );
 
+    toast.info(confirmDelete, { autoClose: false });
+  };
 
-  const handleEdit = (project: any) => {
+  // تعديل مشروع
+  const handleEdit = (project: Project) => {
     setSelectedProject(project);
     setShowModal(true);
   };
 
-  const handleSave = (updated: any) => {
+  const handleSave = (updated: Project) => {
     setProjects((prev) =>
       prev.map((p) => (p.id === updated.id ? updated : p))
     );
     setShowModal(false);
   };
 
+  // تصفية المشاريع بحسب البحث
   const filteredProjects = projects.filter((p) =>
     p.name.toLowerCase().includes(searchTerm.toLowerCase())
   );

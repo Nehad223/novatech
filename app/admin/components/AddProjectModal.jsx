@@ -1,7 +1,8 @@
+"use client";
 import { useState } from "react";
-import {api} from '../../../lib/api';
+import { api } from '../../../lib/api';
 import { CldUploadWidget } from "next-cloudinary";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function AddProjectModal({ onClose }) {
   const [form, setForm] = useState({
@@ -52,29 +53,32 @@ export default function AddProjectModal({ onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!form.name || !form.shortDiscription || !form.longDiscription) {
       toast.error("الرجاء تعبئة جميع الحقول المطلوبة");
-
       return;
     }
 
     setLoading(true);
     try {
-
       const payload = { ...form };
-      const res = await  api("https://novatech66.pythonanywhere.com/projects/newpro/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json",
-            credentials: "include",
-     
+      const res = await api(
+        "https://novatech66.pythonanywhere.com/projects/newpro/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
-         },
-        body: JSON.stringify(payload),
-      });
+      if (!res) throw new Error("لم يتم الحصول على استجابة من السيرفر");
 
-      if (!res.ok) throw new Error(await res.text());
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text);
+      }
 
-          toast.success("تم ارسال الطلب بنجاح");
+      toast.success("تم ارسال الطلب بنجاح");
 
       setForm({
         name: "",
@@ -87,11 +91,10 @@ export default function AddProjectModal({ onClose }) {
         photos: [],
       });
       setTagInput("");
-      onClose(); // إغلاق النافذة بعد الحفظ
+      onClose();
     } catch (err) {
       console.error(err);
       toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
-      
     } finally {
       setLoading(false);
     }
@@ -148,38 +151,37 @@ export default function AddProjectModal({ onClose }) {
                 ></textarea>
               </div>
 
-<div className="mb-3">
-  <label className="form-label d-block mb-2">نوع المشروع:</label>
-  <div className="d-flex flex-wrap gap-2">
-    {[
-      { value: "application", label: "Application" },
-      { value: "website", label: "Website" },
-      { value: "telegrambot", label: "Telegram Bot" },
-      { value: "aimodel", label: "AI Model" },
-    ].map((type) => (
-      <button
-        key={type.value}
-        type="button"
-        className={`btn ${
-          form.projectType.includes(type.value)
-            ? "btn-primary"
-            : "btn-outline-primary"
-        }`}
-        onClick={() => {
-          setForm((prev) => {
-            const selected = prev.projectType.includes(type.value)
-              ? prev.projectType.filter((t) => t !== type.value)
-              : [...prev.projectType, type.value];
-            return { ...prev, projectType: selected };
-          });
-        }}
-      >
-        {type.label}
-      </button>
-    ))}
-  </div>
-</div>
-
+              <div className="mb-3">
+                <label className="form-label d-block mb-2">نوع المشروع:</label>
+                <div className="d-flex flex-wrap gap-2">
+                  {[
+                    { value: "application", label: "Application" },
+                    { value: "website", label: "Website" },
+                    { value: "telegrambot", label: "Telegram Bot" },
+                    { value: "aimodel", label: "AI Model" },
+                  ].map((type) => (
+                    <button
+                      key={type.value}
+                      type="button"
+                      className={`btn ${
+                        form.projectType.includes(type.value)
+                          ? "btn-primary"
+                          : "btn-outline-primary"
+                      }`}
+                      onClick={() => {
+                        setForm((prev) => {
+                          const selected = prev.projectType.includes(type.value)
+                            ? prev.projectType.filter((t) => t !== type.value)
+                            : [...prev.projectType, type.value];
+                          return { ...prev, projectType: selected };
+                        });
+                      }}
+                    >
+                      {type.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
               <div className="mb-3">
                 <input
@@ -203,7 +205,6 @@ export default function AddProjectModal({ onClose }) {
                 />
               </div>
 
-              {/* tags */}
               <div className="mb-3">
                 <label className="form-label">الكلمات المفتاحية:</label>
                 <div className="input-group mb-2">
@@ -234,7 +235,6 @@ export default function AddProjectModal({ onClose }) {
                 </div>
               </div>
 
-              {/* photos */}
               <div className="mb-3">
                 <label className="form-label">صور المشروع:</label>
                 <CldUploadWidget
@@ -263,7 +263,7 @@ export default function AddProjectModal({ onClose }) {
                       onClick={() => open()}
                       className="btn btn-primary"
                     >
-                      رفع صور  
+                      رفع صور
                     </button>
                   )}
                 </CldUploadWidget>
@@ -276,7 +276,6 @@ export default function AddProjectModal({ onClose }) {
                         alt={`صورة ${i + 1}`}
                         className="rounded border"
                         style={{ width: "100px", height: "100px", objectFit: "cover" }}
-                        
                       />
                       <button
                         type="button"
@@ -306,4 +305,3 @@ export default function AddProjectModal({ onClose }) {
     </div>
   );
 }
-

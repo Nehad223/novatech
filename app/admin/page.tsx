@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import '../portfolio/Portfolio.css';
 import Portfilio_Items from '../Components/Portfilio_Items.jsx';
 import Navbar_Admin from '../Components/Navbar_Admin.jsx';
@@ -61,7 +61,5 @@ useEffect(() => {
     </div>
   );
 }
-
-
 
 

@@ -1,40 +1,29 @@
-// lib/api.ts
-"use client";
-import { refreshToken } from "./refreshToken";
-function getCookie(name: string) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
-  return null;
-}
+import { getCurrentAccessToken, refreshToken } from "./refreshToken";
+import { isAccessTokenValid } from "./cookies";
 
 export async function api(url: string, options: RequestInit = {}) {
-  const access = getCookie("access_token");
+  // تحقق من صلاحية token قبل الإرسال
+  if (!isAccessTokenValid()) {
+    const newToken = await refreshToken();
+    if (!newToken) {
+      window.location.href = "/admin/login";
+      return;
+    }
+  }
 
-  const headers = {
+  const token = getCurrentAccessToken();
+
+  const buildHeaders = (t: string | null) => ({
     "Content-Type": "application/json",
     ...(options.headers || {}),
-    Authorization: access ? `Bearer ${access}` : "",
-  };
+    Authorization: t ? `Bearer ${t}` : "",
+  });
 
   try {
-    let res = await fetch(url, { ...options, headers });
-
- 
-    if (res.status === 401) {
-      const newAccess = await refreshToken();
-      if (newAccess) {
-        res = await fetch(url, {
-          ...options,
-          headers: { ...headers, Authorization: `Bearer ${newAccess}` },
-        });
-      }
-    }
-
+    const res = await fetch(url, { ...options, headers: buildHeaders(token) });
     return res;
   } catch (err) {
-    console.error("API request failed:", err);
+    console.error("API error:", err);
     throw err;
   }
 }
-

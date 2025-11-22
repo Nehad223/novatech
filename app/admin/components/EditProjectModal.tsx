@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect,FormEvent } from "react";
 import {api} from '../../../lib/api';
 import { CldUploadWidget } from "next-cloudinary";
 import { ToastContainer, toast } from 'react-toastify';
@@ -26,32 +26,34 @@ export default function EditProjectModal({ project, onClose, onSave }: EditProje
     setSelectedProject((prev: any) => ({ ...prev, [name]: value }));
   };
 
-  const handleSave = async (e: any) => {
-    e.preventDefault();
-    setSaving(true);
-    try {
+const handleSave = async (e: FormEvent) => {
+  e.preventDefault();
+  setSaving(true);
+  try {
+    const res: Response | undefined = await api(
+      `https://novatech66.pythonanywhere.com/projects/project/${selectedProject.id}/`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(selectedProject),
+      }
+    );
 
-      const res = await api(
-        `https://novatech66.pythonanywhere.com/projects/project/${selectedProject.id}/`,
-        {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" ,
-          },
-          body: JSON.stringify(selectedProject),
-            credentials: "include",
-        }
-      );
+    if (!res) throw new Error("لم يتم الحصول على استجابة من السيرفر");
 
-      if (!res.ok) throw new Error("فشل التحديث");
-               toast.success("تم ارسال الطلب بنجاح");
-      onSave(selectedProject);
-    } catch (err) {
-      console.error("❌ خطأ أثناء الحفظ:", err);
-            toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
-    } finally {
-      setSaving(false);
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(text);
     }
-  };
+
+    toast.success("تم ارسال الطلب بنجاح");
+    onSave(selectedProject);
+  } catch (err) {
+    console.error("خطأ أثناء الحفظ:", err);
+    toast.error("حصل خطأ أثناء ارسال الطلب، الرجاء المحاولة لاحقاً");
+  } finally {
+    setSaving(false);
+  }
+};
 
   const addTag = (tag: string) => {
     const clean = tag.trim();
