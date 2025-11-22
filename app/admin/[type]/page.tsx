@@ -56,47 +56,50 @@ export default function AdminProjectsPage() {
   }, [apiType]);
 
   // حذف مشروع
-  const handleDelete = (id: number) => {
-    const confirmDelete = (
-      <div className="text-center">
-        <p>هل أنت متأكد من حذف المشروع؟</p>
-        <div className="d-flex justify-content-center gap-2 mt-2">
-          <button
-            className="btn btn-danger btn-sm"
-            onClick={async () => {
-              try {
-                const res: Response = await api(
-                  `https://novatech66.pythonanywhere.com/projects/project/${id}/`,
-                  { method: "DELETE" }
-                );
+const handleDelete = (id: number) => {
+  const confirmDelete = (
+    <div className="text-center">
+      <p>هل أنت متأكد من حذف المشروع؟</p>
+      <div className="d-flex justify-content-center gap-2 mt-2">
+        
+        <button
+          className="btn btn-danger btn-sm"
+          onClick={async () => {
+            try {
+              const res = await api(
+                `https://novatech66.pythonanywhere.com/projects/project/${id}/`,
+                { method: "DELETE" }
+              );
 
-                if (!res.ok) throw new Error("فشل حذف المشروع");
+              if (!res) throw new Error("لا يوجد استجابة من السيرفر");
+              if (!res.ok) throw new Error("فشل حذف المشروع");
 
-                setProjects((prev) => prev.filter((p) => p.id !== id));
-                toast.success("تم حذف المشروع بنجاح");
-              } catch (err) {
-                console.error(err);
-                toast.error("حدث خطأ أثناء حذف المشروع");
-              } finally {
-                toast.dismiss();
-              }
-            }}
-          >
-            حذف
-          </button>
+              setProjects((prev) => prev.filter((p) => p.id !== id));
+              toast.success("تم حذف المشروع بنجاح");
+            } catch (err) {
+              console.error(err);
+              toast.error("حدث خطأ أثناء حذف المشروع");
+            } finally {
+              toast.dismiss();
+            }
+          }}
+        >
+          حذف
+        </button>
 
-          <button
-            className="btn btn-secondary btn-sm"
-            onClick={() => toast.dismiss()}
-          >
-            إلغاء
-          </button>
-        </div>
+        <button
+          className="btn btn-secondary btn-sm"
+          onClick={() => toast.dismiss()}
+        >
+          إلغاء
+        </button>
       </div>
-    );
+    </div>
+  );
 
-    toast.info(confirmDelete, { autoClose: false });
-  };
+  toast.info(confirmDelete, { autoClose: false });
+};
+
 
   // تعديل مشروع
   const handleEdit = (project: Project) => {
