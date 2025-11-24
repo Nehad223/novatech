@@ -109,7 +109,7 @@ const Contact_Body = () => {
         <div className='location'>
           <img className='img' src="/phone.avif" alt='phone' />
           <p>Phone</p>
-          <p>+963940219610</p>
+          <p>963995392657+</p>
         </div>
 
         <div>
