@@ -3,6 +3,7 @@ const page = () => {
   return (
     <div>
       statistics
+      
     </div>
   )
 }

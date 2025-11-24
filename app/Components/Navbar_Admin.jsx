@@ -37,7 +37,7 @@ const Navbar_Admin = () => {
               </a>
             </li>
             <li className="nav-item mx-2 mt-lg-5">
-              <a className="nav-link" href="/admin/statistics">
+              <a className="nav-link" target="_blank" href="https://analytics.google.com/analytics/web/?authuser=7#/a375579974p513623390/reports/reportinghub?params=_u..nav%3Dmaui">
                 Statistics
               </a>
             </li>
@@ -45,7 +45,7 @@ const Navbar_Admin = () => {
               <Orange_btn
                 text="Log out"
                 class="btn_Start"
-                 href="logout"
+                 href="/logout"
               />
             </li>
           </ul>
