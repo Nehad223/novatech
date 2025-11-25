@@ -40,7 +40,7 @@ setCookie("refresh_token", data.refresh, 7 * 24 * 60 * 60);
   return (
     <div className="container">
       <div className="box">
-        <img src="/Logo.avif" className="logo" alt="Logo"  />
+        <img src="/Logo.avif" className="logo" alt="Logo" />
         <h1 className="title">Novatech</h1>
 
         <form onSubmit={submit}>

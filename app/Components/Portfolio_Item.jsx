@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react'
-import Link from 'next/link'
+import React, { useState } from 'react';
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
 const Portfolio_Item = ({ 
@@ -17,6 +17,7 @@ const Portfolio_Item = ({
 }) => {
 
   const { type } = useParams(); 
+  const [loaded, setLoaded] = useState(false);
 
   const handleClick = () => {
     const data = {
@@ -40,7 +41,15 @@ const Portfolio_Item = ({
       onClick={handleClick}
     >
       <div className="portfolio-image-container">
-        <img src={image} alt={title} className="portfolio-image" />
+        {/* shimmer overlay */}
+        {!loaded && <div className="shimmer"></div>}
+
+        <img 
+          src={image} 
+          alt={title} 
+          className={`portfolio-image ${loaded ? 'loaded' : ''}`}
+          onLoad={() => setLoaded(true)}
+        />
       </div>
       <h3 className="portfolio-title">{title}</h3>
       <p className="portfolio-tech">{technologies.join(', ')}</p>
@@ -48,4 +57,4 @@ const Portfolio_Item = ({
   )
 }
 
-export default Portfolio_Item
+export default Portfolio_Item;

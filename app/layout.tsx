@@ -57,6 +57,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
         {/* ------------------------- */}
+<link rel="preload" as="image" href="/laptopAi.avif"/>
+<link rel="preload" as="image" href="/brain.avif" />
+<link rel="preload" as="image" href="/Logo.avif" />
+<link rel="preload" as="image" href="/app.avif" />
+<link rel="preload" as="image" href="/ai.avif"  />
+<link rel="preload" as="image" href="/bot.avif"  />
+<link rel="preload" as="image" href="/web.avif" />
+
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tajawal.variable} ${roboto.variable} antialiased`}
