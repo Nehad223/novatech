@@ -13,7 +13,7 @@
     "bootstrap": "^5.3.8",
     "cookie": "^1.0.2",
     "iron-session": "^8.0.4",
-    "next": "16.0.1",
+    "next": "16.0.10",
     "next-cloudinary": "^6.17.4",
     "next-sitemap": "^4.2.3",
     "react": "19.2.0",
