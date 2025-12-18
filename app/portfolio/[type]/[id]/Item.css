@@ -92,15 +92,26 @@
 font-weight: 400;
 
 } 
-.Inner2 img,
-.carousel-inner img {
+
+.carousel-img-wrapper {
   width: 100%;
-  height: 28vh !important;
-  max-height: 500px !important;
-  border-radius: 12px;       
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 35vh;              /* عدّلها حسب الذوق */
+  max-height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;          /* مهم للسكرينات */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.carousel-img-wrapper img {
+  width: 100%;
+  border-radius: 12px;
+  height: 100%;
+  object-fit: contain;       /* 🔥 هون الفرق */
+}
+
 
 .Inner2 img:hover,
 .carousel-inner img:hover {

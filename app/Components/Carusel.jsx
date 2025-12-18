@@ -10,8 +10,9 @@ const Carusel = ({ images = [] }) => {
             key={index}
             className={`carousel-item ${index === 0 ? 'active' : ''}`}
             data-bs-interval={index === 0 ? '10000' : '2000'}
-          >
-            <img src={src} className="d-block" alt={`slide-${index}`} />
+          >  <div className="carousel-img-wrapper">
+    <img src={src} alt={`slide-${index}`} />
+  </div>
           </div>
         ))}
       </div>
@@ -40,3 +41,4 @@ const Carusel = ({ images = [] }) => {
 };
 
 export default Carusel;
+
