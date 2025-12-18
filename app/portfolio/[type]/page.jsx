@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Navbar from '../../Components/Navbar';
 import './Port.css';
 import Portfolio_Item from '../../Components/Portfolio_Item';
-
+import LoadingScreen from "@/app/Components/LoadingScreen";
 export default function PortfolioTypePage() {
   const { type } = useParams();
   const [projects, setProjects] = useState([]);
@@ -88,7 +88,7 @@ export default function PortfolioTypePage() {
 
         <div className='Portfolio_Items container'>
           {loading ? (
-            <p>جاري تحميل المشاريع...</p>
+          <LoadingScreen/>
           ) : filteredProjects.length > 0 ? (
             filteredProjects.map((proj) => (
               <Portfolio_Item
@@ -105,7 +105,7 @@ export default function PortfolioTypePage() {
               />
             ))
           ) : (
-            <p>لا يوجد مشاريع مطابقة.</p>
+            <p></p>
           )}
         </div>
       </div>

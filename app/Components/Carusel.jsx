@@ -1,9 +1,7 @@
 import React from 'react';
 
 const Carusel = ({ images = [] }) => {
-  // إذا ما في صور من props، ما يعرض شي
   if (!images.length) return null;
-
   return (
     <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">

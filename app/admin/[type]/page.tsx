@@ -11,7 +11,7 @@ import ProjectsList from "../components/ProjectsList";
 import EditProjectModal from "../components/EditProjectModal";
 import { getApiType } from "../components/utils";
 import { toast } from "react-toastify";
-
+import LoadingScreen from "@/app/Components/LoadingScreen";
 // تعريف واجهة المشروع لتجنب any
 interface Project {
   id: number;
@@ -128,7 +128,7 @@ const handleDelete = (id: number) => {
         <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
         {loading ? (
-          <p>⏳ جاري تحميل المشاريع...</p>
+        <LoadingScreen/>
         ) : (
           <ProjectsList
             projects={filteredProjects}
