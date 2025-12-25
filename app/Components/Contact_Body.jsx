@@ -104,21 +104,34 @@ const Contact_Body = () => {
         <div className='location'>
           <img className='img' src="/email.avif" alt='email' />
           <p>Email</p>
-          <p>novatech@gmail.com</p>
+          <p>novatech295@gmail.com</p>
         </div>
         <div className='location'>
           <img className='img' src="/phone.avif" alt='phone' />
           <p>Phone</p>
-          <p>963995392657+</p>
+          <p>+963995392657</p>
         </div>
 
         <div>
           <h3>Links</h3>
-          <div className='icons'>
-            <img src="/facebook.avif" alt='facebook' />
-            <img src="/telegram.avif" alt='telegram' />
-            <img src="/insta.avif" alt='instagram' />
-            <img src="/github.avif" alt='github' />
+  <div className='icons'>
+
+            <a href="https://www.facebook.com/profile.php?id=61581180193826" target="_blank" rel="noopener noreferrer">
+              <img src="/facebook.avif" alt='facebook' />
+            </a>
+
+            <a href="https://wa.me/963995392657" target="_blank" rel="noopener noreferrer">
+              <img src="/whatsapp.avif" alt='telegram' />
+            </a>
+
+            <a href="https://www.instagram.com/nova.tech295" target="_blank" rel="noopener noreferrer">
+              <img src="/insta.avif" alt='instagram' />
+            </a>
+
+            <a href="https://github.com/novatech295" target="_blank" rel="noopener noreferrer">
+              <img src="/github.avif" alt='github' />
+            </a>
+
           </div>
         </div>
       </div>
